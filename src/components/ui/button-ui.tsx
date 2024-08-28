@@ -42,8 +42,8 @@ export default function Button({
             clicked: ""
         },
         oauth: {
-            default: "14px flex flex-row font-semibold text-[14px] leading-[20px] text-fontColor-100 bg-netural-100 border-[1px] border-solid",
-            hover: "text-netural-100 bg-primary-blue", 
+            default: "14px flex flex-row items-center justify-center gap-[13px] font-semibold text-[14px] leading-[20px] text-fontColor-100 bg-netural-100 border-[1px] border-solid w-[304px] h-[40px]",
+            hover: "hover:text-netural-100 hover:bg-primary-blue", 
             clicked: ""
         },
         none: {
