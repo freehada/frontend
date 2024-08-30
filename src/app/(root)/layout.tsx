@@ -1,3 +1,4 @@
+import Header from "@/components/header";
 import { ReactNode } from "react";
 
 
@@ -8,8 +9,12 @@ export default function HomeRootLayout({
 }) {
 
     return (
-        <section className="h-screen max-w-[1280px] w-full mx-auto border-l-1 border-r-1 shadow-2xl">
-         {children}
-        </section>
+       <section className="h-screen w-screen flex flex-col">
+            <Header/>
+            {/* border-l-1 border-r-1 shadow-2xl 테스트환경에서만 쓸값임 */}
+            <section className="grow layout-container bg-netural-100 border-l-1 border-r-1 shadow-2xl">
+                {children}
+            </section>
+       </section>
     )
 }

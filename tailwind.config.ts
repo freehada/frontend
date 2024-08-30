@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         primary: { //메인컬러
           blue: "#2A43C4",
-          yellow: "#2A43C4"
+          yellow: "#FFD602"
         },  
         netural: { //네츄럴 컬러
           100: "#FFFFFF",

@@ -8,3 +8,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
+.layout-container {
+  @apply max-w-[1280px] w-full mx-auto;
+}
