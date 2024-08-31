@@ -1,39 +1,41 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        primary: { //메인컬러
-          blue: "#2A43C4",
-          yellow: "#FFD602"
-        },  
-        netural: { //네츄럴 컬러
-          100: "#FFFFFF",
-          98: "#F6F7F8",
-          80: "#D3D5DA",
-          70: "#BABDC5",
-          60: "#80848E",
-          40: "#606571",
-          25: "#33353D",
-          20: "#2A2B32",
-          10: "#17181C",
-          0: "#0A0A0A"
+        primary: {
+          //메인컬러
+          blue: '#2A43C4',
+          yellow: '#FFD602',
+        },
+        netural: {
+          //네츄럴 컬러
+          100: '#FFFFFF',
+          98: '#F6F7F8',
+          80: '#D3D5DA',
+          70: '#BABDC5',
+          60: '#80848E',
+          40: '#606571',
+          25: '#33353D',
+          20: '#2A2B32',
+          10: '#17181C',
+          0: '#0A0A0A',
         },
         fontColor: {
-          100: '#222222', 
-          200: '#333333', 
+          100: '#222222',
+          200: '#333333',
           300: '#505050', // 사용 예: text-fontColor-300
         },
-        lineColor:{
-          100: "#05070F",
-          90: "#05070F"
-        }
+        lineColor: {
+          100: '#05070F',
+          90: '#05070F',
+        },
       },
       fontSize: {
         xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -53,7 +55,7 @@ const config: Config = {
       fontFamily: {
         sans: ['Pretendard Variable', 'sans-serif'], // font-sans
         sticking: ['StickingCloseFont', 'sans-serif'],
-      }
+      },
     },
   },
   plugins: [require('tailwindcss-debug-screens')],

@@ -1,9 +1,6 @@
-import LoginOAuthForm from "@/components/login-oauth-form";
-import Image from "next/image";
+import LoginOAuthForm from '@/components/login-oauth-form';
+import Image from 'next/image';
 
 export default function Home() {
-  return (
-    <div>
-    </div>
-  );
+  return <div></div>;
 }
