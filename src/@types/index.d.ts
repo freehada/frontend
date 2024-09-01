@@ -5,6 +5,8 @@ export type VariantStyles<T extends string> = {
     default: string;
     hover?: string;
     clicked?: string;
+    focus?: string;
+    disabled?: string;
   };
 };
 

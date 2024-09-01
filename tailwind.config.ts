@@ -8,11 +8,25 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        box: '0px 8px 20px 0px #36256D14',
+      },
+      screens: {
+        'max-sm': { max: '639px' }, // 639px 이하
+        'max-md': { max: '767px' }, // 767px 이하
+        'max-lg': { max: '1023px' }, // 1023px 이하
+        'max-xl': { max: '1279px' }, // 1279px 이하
+        'max-2xl': { max: '1535px' }, // 1535px 이하
+        'h-700': { raw: '(max-height: 704px)' },
+      },
       colors: {
         primary: {
           //메인컬러
           blue: '#2A43C4',
           yellow: '#FFD602',
+        },
+        sub: {
+          red: '#F65745',
         },
         netural: {
           //네츄럴 컬러

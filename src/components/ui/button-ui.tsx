@@ -38,13 +38,14 @@ export default function Button({
   const variantStyles: VariantStyles<ButtonVariants> = {
     primary: {
       default:
-        '14px py-[12px] flex flex-row items-center justify-center font-semibold text-[14px] leading-[20px] text-fontColor-100 bg-[#FFF] border-[1px] border-solid border-fontColor-300',
+        '14px py-[12px] flex flex-row items-center justify-center font-semibold text-[14px] leading-[20px] text-fontColor-100 bg-[#FFF] border-[1px] border-solid border-fontColor-300 transition-color duration-300',
       hover: 'hover:text-netural-100 hover:bg-primary-blue',
+      disabled: 'bg-netural-70 text-netural-100 border-none',
       clicked: '',
     },
     oauth: {
       default:
-        '14px py-[12px] px-[20px] flex flex-row items-center justify-center gap-[13px] font-semibold text-[14px] leading-[20px] text-fontColor-100 bg-netural-100 border-[1px] border-solid w-[304px] h-[40px]',
+        '14px py-6 px-[20px] flex flex-row items-center justify-center gap-[13px] font-semibold text-[14px] leading-[20px] text-fontColor-100 bg-netural-100 border-[1px] border-solid w-[304px] h-[40px]',
       hover: 'hover:text-netural-100 hover:bg-primary-blue',
       clicked: '',
     },
@@ -64,10 +65,14 @@ export default function Button({
       type={type}
       className={clsx(
         variantStyles[variant].default,
-        clicked ? variantStyles[variant].clicked : variantStyles[variant].hover,
+        clicked ? variantStyles[variant].clicked : !disabled && variantStyles[variant].hover,
         className,
         fontVariantStyles[font],
+        {
+          [variantStyles[variant].disabled as string]: disabled,
+        },
       )}
+      disabled={disabled}
     >
       {children}
     </button>
