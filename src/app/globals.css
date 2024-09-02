@@ -19,8 +19,8 @@
 
   /* Webkit (Chrome, Safari, Edge) */
   &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
   &::-webkit-scrollbar-track {
@@ -29,8 +29,8 @@
 
   &::-webkit-scrollbar-thumb {
     background-color: #4a4a4a;
-    border-radius: 4px;
-    border: 2px solid #e5e5e5;
+    border-radius: 14px;
+    border: 1px solid #e5e5e5;
   }
 
   &::-webkit-scrollbar-thumb:hover {

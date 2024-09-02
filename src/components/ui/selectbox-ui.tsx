@@ -75,13 +75,17 @@ export default function SelectBox<T extends ElementType = 'div'>({
         }}
       >
         {selectedValue ? options.find((option) => option.value === selectedValue)?.label : placeholder}
-        <IoIosArrowDown />
+        <IoIosArrowDown
+          className={clsx('w-[16px] h-[16px] transition-transform duration-300', {
+            'rotate-180': isOpen,
+          })}
+        />
       </div>
       {!disabled && isOpen && (
         <ul
           ref={menuRef}
           className={clsx(
-            'absolute left-0 right-0 mt-1  bg-white max-h-[164px] overflow-auto shadow-box .custom-scrollbar',
+            'absolute left-0 right-0 mt-1  bg-white max-h-[164px] overflow-auto shadow-box custom-scrollbar z-40',
           )}
         >
           {options.map((option) => (

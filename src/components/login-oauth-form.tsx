@@ -1,8 +1,11 @@
+'use client';
 import Text from '@/components/ui/text-ui';
 import Button from './ui/button-ui';
 import Image from 'next/image';
 import Logo from './ui/logo-ui';
 import LogoTitle from './logo-title';
+import Link from 'next/link';
+import axios from 'axios';
 
 export default function LoginOAuthForm() {
   return (
@@ -12,10 +15,21 @@ export default function LoginOAuthForm() {
       </div>
 
       <div className="flex flex-col gap-[10px]">
-        <Button variant="oauth">
+        {/* <Link href="https://api.eddy-pl.com/api/auth/login/kakao"> */}
+        <Button
+          variant="oauth"
+          onClick={() => {
+            console.log('request');
+            axios.get('https://api.eddy-pl.com/api/auth/login/kakao').then((data) => {
+              console.log(data);
+            });
+          }}
+        >
           <Image src={'/icons/Naver20.png'} width={30} height={30} alt="google" />
           <Text variant="sans">네이버로 시작하기</Text>
         </Button>
+        {/* </Link> */}
+
         <Button variant="oauth">
           <Image src={'/icons/Kakao20.png'} width={30} height={30} alt="google" />
           <Text variant="sans">카카오로 시작하기</Text>

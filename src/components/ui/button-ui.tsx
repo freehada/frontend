@@ -73,6 +73,7 @@ export default function Button({
         },
       )}
       disabled={disabled}
+      {...props}
     >
       {children}
     </button>
