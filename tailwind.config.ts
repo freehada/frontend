@@ -8,6 +8,24 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        grow: {
+          '0%': { transform: 'scale(0)', opacity: '1' },
+          '100%': { transform: 'scale(3.5)', opacity: '0' },
+        },
+        wave: {
+          '50%': {
+            transform: 'scale(0.9)',
+          },
+        },
+      },
+      animation: {
+        grow: 'grow 0.6s ease-in-out forwards',
+        wave: 'wave 0.4s ease',
+      },
+      transform: {
+        '3d': 'translate3d(0, 0, 0)',
+      },
       boxShadow: {
         box: '0px 8px 20px 0px #36256D14',
       },
