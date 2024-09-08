@@ -18,10 +18,15 @@ const config: Config = {
             transform: 'scale(0.9)',
           },
         },
+        show: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         grow: 'grow 0.6s ease-in-out forwards',
         wave: 'wave 0.4s ease',
+        show: 'show 2.2s ease',
       },
       transform: {
         '3d': 'translate3d(0, 0, 0)',

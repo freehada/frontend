@@ -8,11 +8,13 @@ export default function QueryProvider({ children }: { children: ReactNode }) {
       defaultOptions: {
         queries: {
           staleTime: 1000 * 60 * 3, // 3분
+          // staleTime: 0,
           refetchOnWindowFocus: true,
           retry: 0,
           networkMode: 'offlineFirst',
           refetchOnMount: true,
           gcTime: 1000 * 60 * 10, //10분
+          // gcTime: 0,
         },
         mutations: {
           retry: 0,

@@ -15,3 +15,5 @@ export type UICommonProps<T extends ElementType, C> = {
   children?: ReactNode;
   variant?: C;
 } & ComponentPropsWithoutRef<T>;
+
+export type OAuthKey = 'KAKAO' | 'NAVER' | 'GOOGLE';
