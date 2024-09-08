@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import clsx from 'clsx';
 import QueryProvider from '@/queries/query-povider';
+import { SessionProvider } from 'next-auth/react';
+import Session from '@/components/session';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,7 +25,9 @@ export default function RootLayout({
           'debug-screens': process.env.NODE_ENV === 'development',
         })}
       >
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <Session>{children}</Session>
+        </QueryProvider>
       </body>
     </html>
   );

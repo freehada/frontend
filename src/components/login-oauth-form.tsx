@@ -6,6 +6,10 @@ import Logo from './ui/logo-ui';
 import LogoTitle from './logo-title';
 import Link from 'next/link';
 import axios from 'axios';
+import { getSession, signIn } from 'next-auth/react';
+import { useEffect } from 'react';
+import { redirect } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 export default function LoginOAuthForm() {
   return (
@@ -15,22 +19,17 @@ export default function LoginOAuthForm() {
       </div>
 
       <div className="flex flex-col gap-[10px]">
-        {/* <Link href="https://api.eddy-pl.com/api/auth/login/kakao"> */}
-        <Button
-          variant="oauth"
-          onClick={() => {
-            console.log('request');
-            axios.get('https://api.eddy-pl.com/api/auth/login/kakao').then((data) => {
-              console.log(data);
-            });
-          }}
-        >
+        <Button variant="oauth">
           <Image src={'/icons/Naver20.png'} width={30} height={30} alt="google" />
           <Text variant="sans">네이버로 시작하기</Text>
         </Button>
-        {/* </Link> */}
 
-        <Button variant="oauth">
+        <Button
+          variant="oauth"
+          onClick={() => {
+            signIn('kakao', { callbackUrl: '/' });
+          }}
+        >
           <Image src={'/icons/Kakao20.png'} width={30} height={30} alt="google" />
           <Text variant="sans">카카오로 시작하기</Text>
         </Button>
