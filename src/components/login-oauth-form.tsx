@@ -28,11 +28,8 @@ export default function LoginOAuthForm() {
 
         <Button
           variant="oauth"
-          // onClick={() => {
-          //   signIn('kakao', { callbackUrl: '/' });
-          // }}
           onClick={() => {
-            openLoading();
+            signIn('kakao', { callbackUrl: '/' });
           }}
         >
           <Image src={'/icons/Kakao20.png'} width={30} height={30} alt="kakao" />

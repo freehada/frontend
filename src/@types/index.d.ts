@@ -16,4 +16,13 @@ export type UICommonProps<T extends ElementType, C> = {
   variant?: C;
 } & ComponentPropsWithoutRef<T>;
 
+type AsProps<C extends ElementType> = {
+  as?: C;
+};
+
+type PropsToOmit<C extends ElementType, T> = keyof (AsProps<C> & T);
+
+export type PolymophicComponentProps<C extends ElementType, Props = {}> = PropsWithChildren<Props & AsProsp<C>> &
+  Omit<ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
+
 export type OAuthKey = 'KAKAO' | 'NAVER' | 'GOOGLE';

@@ -5,7 +5,7 @@ import Button from '@/components/ui/button-ui';
 import Input from '@/components/ui/input-ui';
 import Checkbox from '@/components/ui/checkbox-ui';
 import { useState } from 'react';
-import TextChecbox from '@/components/ui/text-checbox';
+import CheckboxButton from '@/components/ui/checkbox-button-ui';
 
 /**
  * @deprecated
@@ -45,7 +45,7 @@ export default function UiPage() {
 
       <div>
         테스트 체큽가스
-        <TextChecbox />
+        <CheckboxButton />
       </div>
     </div>
   );
