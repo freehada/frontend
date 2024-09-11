@@ -19,6 +19,8 @@ const oauthKeyURL: OAuthKeyURLType = {
  * @note 로그인 시도 후 인증요청 Hook
  */
 const useAuthenticatedQuery = ({ kind }: { kind: OAuthKey }) => {
+  const router = useRouter();
+
   const resultQuery = useQuery({
     queryKey: ['authentication', kind],
     queryFn: async () => {
@@ -27,19 +29,28 @@ const useAuthenticatedQuery = ({ kind }: { kind: OAuthKey }) => {
       if (!session) {
         throw new Error('Not authenticated');
       }
-      const response = await axios.post<{ token: string }>(oauthKeyURL[kind], {
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await axios.post<{ token: string }>(
+        oauthKeyURL[kind],
+        {
+          email: session?.user?.email,
         },
-      });
-
-      const autorizeResponse = await axios.get('https://api.eddy-pl.com/api/user/me', {
-        headers: {
-          Authorization: `Bearer ${response.data.token}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
         },
-      });
+      );
 
-      return autorizeResponse.data;
+      //가입처리 된 유저
+      if (response.status === 200) {
+        const autorizeResponse = await axios.get('https://api.eddy-pl.com/api/user/me', {
+          headers: {
+            Authorization: `Bearer ${response.data.token}`,
+          },
+        });
+      }
+
+      return response.data;
     },
     staleTime: 0,
     gcTime: 0,

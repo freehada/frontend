@@ -12,9 +12,12 @@ export default function Home() {
   const router = useRouter();
   const { data, isSuccess, isFetching, isError, refetch, error } = useAuthenticatedQuery({ kind: 'KAKAO' });
   const { openLoading, closeLoading } = useLoadingCompomentStore();
+
   useEffect(() => {
+    openLoading();
     if (axios.isAxiosError(error)) {
-      if (error.status === 400) {
+      //가입되지 않은유저
+      if (error.status === 404) {
         router.push('/signup');
       }
     }

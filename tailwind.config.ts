@@ -90,7 +90,7 @@ const config: Config = {
         '9xl': ['8rem', { lineHeight: '1' }],
       },
       fontFamily: {
-        sans: ['Pretendard Variable', 'sans-serif'], // font-sans
+        sans: ['Pretendard Variable'], // font-sans
         sticking: ['StickingCloseFont', 'sans-serif'],
       },
     },

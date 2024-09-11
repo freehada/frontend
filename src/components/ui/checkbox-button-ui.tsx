@@ -1,7 +1,7 @@
 'use client';
 import { PolymophicComponentProps } from '@/@types';
 import clsx from 'clsx';
-import { ElementType, forwardRef, Ref, useEffect, useState } from 'react';
+import { ChangeEvent, ElementType, forwardRef, Ref, useEffect, useState } from 'react';
 import Image from 'next/image';
 
 type CheckboxButtonProps = {};
@@ -16,19 +16,24 @@ const CheckboxButton = forwardRef(
     useEffect(() => {}, [checked]);
 
     return (
-      <div className="flex items-center">
-        <Component ref={ref} type="checkbox" checked={checked} className="hidden inp-cbx" {...props} />
+      <div className="flex items-center h-fit w-fit">
+        <Component
+          ref={ref}
+          type="checkbox"
+          checked={checked}
+          className="hidden inp-cbx"
+          onChange={(e: ChangeEvent) => {}}
+          {...props}
+        />
         <label
           htmlFor="checkbox"
-          className={clsx("relative  w-[24px] h-[24px] cursor-pointer block before:content-[''] ", {
+          className={clsx('relative  w-[30px] h-[30px] cursor-pointer ', {
             'opacity-100 animate-wave': checked,
-            'opacity-60': !checked,
+            'opacity-30': !checked,
           })}
         >
-          <span
-            className={clsx('bg-white w-[14px] h-[14px] transition-all duration-300 label-cbx', {
-              "before:content-[''] w-full h-full bg-[#506eec] before:opacity-100 before:grow": checked,
-            })}
+          <div
+            className={clsx('relative w-[30px] h-[30px] transition-all duration-300', {})}
             onClick={(e) => {
               setChecked((prev) => !prev);
             }}
@@ -38,17 +43,17 @@ const CheckboxButton = forwardRef(
                 fill
                 src={'/icons/arrow/Bt_checkbox_Round_On.png'} // 체크 상태일 때의 이미지
                 alt="checked icon"
-                className={clsx('cursor-pointer')}
+                className={clsx('cursor-pointer rounded-full')}
               />
             ) : (
               <Image
                 fill
                 src={'/icons/arrow/Bt_checkbox_Round_Off.png'} // 체크되지 않은 상태일 때의 이미지
                 alt="unchecked icon"
-                className={clsx('cursor-pointer ')}
+                className={clsx('cursor-pointer rounded-full')}
               />
             )}
-          </span>
+          </div>
         </label>
       </div>
     );
