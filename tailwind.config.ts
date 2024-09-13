@@ -1,3 +1,4 @@
+import { transform } from 'next/dist/build/swc';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -9,6 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0.1' },
+          '100%': { opacity: '1' },
+        },
         grow: {
           '0%': { transform: 'scale(0)', opacity: '1' },
           '100%': { transform: 'scale(3.5)', opacity: '0' },
@@ -27,6 +32,7 @@ const config: Config = {
         grow: 'grow 0.6s ease-in-out forwards',
         wave: 'wave 0.4s ease',
         show: 'show 2.2s ease',
+        fadeIn: 'fadeIn 1s ease-in-out',
       },
       transform: {
         '3d': 'translate3d(0, 0, 0)',

@@ -9,9 +9,11 @@ type CheckboxButtonProps = {};
 type CheckboxButtonUIProps<C extends ElementType> = PolymophicComponentProps<C, CheckboxButtonProps>;
 
 const CheckboxButton = forwardRef(
-  <C extends ElementType = 'input'>({ as, ...props }: CheckboxButtonUIProps<C>, ref: Ref<HTMLInputElement>) => {
+  <C extends ElementType = 'input'>(
+    { as, checked, onChange, ...props }: CheckboxButtonUIProps<C>,
+    ref: Ref<HTMLInputElement>,
+  ) => {
     const Component = as || 'input';
-    const [checked, setChecked] = useState<boolean>(false);
 
     useEffect(() => {}, [checked]);
 
@@ -22,7 +24,7 @@ const CheckboxButton = forwardRef(
           type="checkbox"
           checked={checked}
           className="hidden inp-cbx"
-          onChange={(e: ChangeEvent) => {}}
+          onChange={onChange}
           {...props}
         />
         <label
@@ -35,7 +37,9 @@ const CheckboxButton = forwardRef(
           <div
             className={clsx('relative w-[30px] h-[30px] transition-all duration-300', {})}
             onClick={(e) => {
-              setChecked((prev) => !prev);
+              onChange({
+                target: { checked: !checked }, // 체크 상태를 반전시켜 부모에게 전달
+              } as ChangeEvent<HTMLInputElement>);
             }}
           >
             {checked ? (
