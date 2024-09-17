@@ -10,7 +10,7 @@ export default function SignUpPage() {
 
       {/* <Image src={'/img_login_trim.png'} width={520} height={40} alt="logo" /> */}
 
-      {/* <AuthForm /> */}
+      <AuthForm />
     </section>
   );
 }

@@ -10,6 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       keyframes: {
+        slideOutLeft: {
+          '0%': { transform: 'translateX(0)', opacity: '1' },
+          '99%': { visibility: 'visible', transform: 'translateX(-100%)', opacity: '0' },
+          '100%': { visibility: 'hidden' },
+        },
+        slideInRight: {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
         fadeIn: {
           '0%': { opacity: '0.1' },
           '100%': { opacity: '1' },
@@ -33,6 +42,8 @@ const config: Config = {
         wave: 'wave 0.4s ease',
         show: 'show 2.2s ease',
         fadeIn: 'fadeIn 1s ease-in-out',
+        slideOutLeft: 'slideOutLeft 2s ease-in-out forwards',
+        slideInRight: 'slideInRight 2s ease-in-out forwards',
       },
       transform: {
         '3d': 'translate3d(0, 0, 0)',

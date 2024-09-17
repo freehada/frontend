@@ -5,8 +5,12 @@ import FormInput from './form-input';
 import LabelWithAsterisk from './label-with-asterisk';
 import Button from './ui/button-ui';
 import SelectBox from './ui/selectbox-ui';
+import useAgreementStore from '@/store/form-agreement-store';
+import clsx from 'clsx';
+import Image from 'next/image';
 
 export default function AuthForm() {
+  const { hasAgreed, setHasAgreed } = useAgreementStore();
   //직업
   const [selectedValueForJob, setSelectedValueForJob] = useState<string | undefined>(undefined);
   //현재 직무상태
@@ -19,7 +23,14 @@ export default function AuthForm() {
   };
 
   return (
-    <form className="flex flex-col gap-[30px] mt-[50px]">
+    <form
+      className={clsx('flex flex-col items-center gap-[30px] ', {
+        'animate-slideInRight': hasAgreed,
+        hidden: !hasAgreed,
+      })}
+    >
+      <Image src={'/img_login_trim.png'} width={520} height={40} alt="logo" />
+
       <div className="space-y-1 grow">
         <LabelWithAsterisk text="닉네임" />
 

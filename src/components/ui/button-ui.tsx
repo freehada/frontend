@@ -3,7 +3,7 @@ import { VariantStyles } from '@/@types';
 import clsx from 'clsx';
 import { ButtonHTMLAttributes, useState } from 'react';
 
-type ButtonVariants = 'oauth' | 'primary' | 'none';
+type ButtonVariants = 'oauth' | 'primary' | 'blue' | 'none';
 type ButtonType = 'button' | 'submit';
 type FontVariants = 'sans' | 'sticking';
 
@@ -49,6 +49,12 @@ export default function Button({
       hover: 'hover:text-netural-100 hover:bg-primary-blue',
       clicked: '',
     },
+    blue: {
+      default: 'col-span-2 h-[40px] border-[1px] border-netural-90 font-semibold bg-primary-blue text-netural-100',
+      hover: 'hover:text-netural-100 hover:bg-primary-blue',
+      disabled: 'col-span-2 bg-netural-70 text-netural-100 border-none',
+      clicked: '',
+    },
     none: {
       default: '',
       hover: '',
@@ -64,12 +70,12 @@ export default function Button({
     <button
       type={type}
       className={clsx(
-        variantStyles[variant].default,
         clicked ? variantStyles[variant].clicked : !disabled && variantStyles[variant].hover,
         className,
         fontVariantStyles[font],
         {
           [variantStyles[variant].disabled as string]: disabled,
+          [variantStyles[variant].default as string]: !disabled,
         },
       )}
       disabled={disabled}
