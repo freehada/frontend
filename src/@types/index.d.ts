@@ -26,3 +26,11 @@ export type PolymophicComponentProps<C extends ElementType, Props = {}> = PropsW
   Omit<ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
 
 export type OAuthKey = 'KAKAO' | 'NAVER' | 'GOOGLE';
+
+export interface AuthFormType {
+  nickname: string;
+  specialization: string;
+  jobStatus: string;
+  careerDuration: string;
+  interests: string;
+}

@@ -2,18 +2,18 @@ import clsx from 'clsx';
 import LabelWithAsterisk from './label-with-asterisk';
 import Input from './ui/input-ui';
 import Text from './ui/text-ui';
+import { ComponentPropsWithoutRef } from 'react';
+import { FieldError } from 'react-hook-form';
 
-interface Props {
-  placeholder: string;
-  disabled?: boolean;
-  inputClassName: string;
+interface Props extends ComponentPropsWithoutRef<'input'> {
+  error?: FieldError;
 }
 
-export default function FormInput({ disabled = false, placeholder, inputClassName }: Props) {
+export default function FormInput({ className, error, ...rest }: Props) {
   return (
     <div className="flex flex-col">
-      <Input disabled={disabled} placeholder={placeholder} className={inputClassName} />
-      {/* <Text className="text-sub-red">Error Message</Text> */}
+      <Input className={clsx('', className)} {...rest} />
+      {error && <Text className="text-sub-red">{error.message}</Text>}
     </div>
   );
 }

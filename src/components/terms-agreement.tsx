@@ -5,11 +5,18 @@ import Agreement from './agreement';
 import Button from './ui/button-ui';
 import useAgreementStore from '@/store/form-agreement-store';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import useLoadingCompomentStore from '@/store/full-loading-store';
 
 export default function TermsAgreement() {
+  const { isOpen, openLoading, closeLoading } = useLoadingCompomentStore();
   const { hasAgreed, setHasAgreed } = useAgreementStore();
-  const [visible, setVisible] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (isOpen) {
+      closeLoading();
+    }
+  });
 
   if (hasAgreed) {
     return null;

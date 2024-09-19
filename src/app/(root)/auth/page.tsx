@@ -27,8 +27,6 @@ export default function AuthPage() {
 
     if (isFetching) {
       openLoading();
-    } else {
-      closeLoading();
     }
   }, [isFetching]);
 
